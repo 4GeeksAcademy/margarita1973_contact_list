@@ -22,7 +22,22 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			state.actions.getContacts()
+			const chargeAgenda = async () => {
+				try {
+
+					await fetch('https://playground.4geeks.com/contact/agendas/margarita1973', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ agenda_slug: "margarita1973" })
+					});
+					state.actions.getContacts();
+
+				} catch (error) {
+					console.error("Error al crear o inicializar la agenda:", error);
+				}
+			};
+
+			chargeAgenda();
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

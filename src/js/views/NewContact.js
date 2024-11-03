@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {Context} from "../store/appContext";
 
 const NewContact = () => {
@@ -30,28 +30,10 @@ const NewContact = () => {
         navigate("/");
     };
 
-    // function createContact(e) {
-    //     e.preventDefault();
-    //     fetch("https://playground.4geeks.com/contact/agendas/margarita1973/contacts", {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(contact)
-
-    //     })
-    //         .then((response) => { return response.json() })
-    //         .then((data) => {
-    //             console.log(data);
-    //             actions.getcontacts();
-    //             navigate(" / ");
-    //         })
-    //         .catch((error) => { console.log(error) })
-    // }
-
+   
     return (
-        <div className="container m-5 " >
-            <h1 className="display-5 text-center mb-2">Agregar un nuevo contacto</h1>
+        <div className="container agenda col-md-12 col-lg-8 m-auto" >
+            <h1 className="display-6 text-center mb-2">Agregar un nuevo contacto</h1>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Nombre Completo</label>
@@ -79,7 +61,7 @@ const NewContact = () => {
                 </div>
             </form>
             <Link to="/">
-                <p><a className="link-opacity-10-hover" >Volver a contactos</a></p>
+                <p className="link-opacity-10-hover" >Volver a contactos</p>
             </Link>
         </div>
     )

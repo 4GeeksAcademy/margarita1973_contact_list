@@ -19,10 +19,10 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div>
+		<div >
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-				
+				<Navbar/>
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />
@@ -31,8 +31,9 @@ const Layout = () => {
 						<Route path="/Edit-Contact/:contactId" element={<EditContact />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
-					<Footer />
+					
 				</ScrollToTop>
+			
 			</BrowserRouter>
 		</div>
 	);
