@@ -41,18 +41,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch((error) => { console.log(error) })
 			},
+
 			deleteContact: (id) => {
 				fetch(`https://playground.4geeks.com/contact/agendas/margarita1973/contacts/${id}`, {
 					method: 'DELETE',
 					headers: { 'Content-Type': 'application/json' }
 				})
-					.then((response) => { return response.json() })
+					.then((response) => { if (response.ok) {
+						const actions = getActions();
+						actions.getContacts();
+						return response.json(); 
+
+					} return response.json() })
 					.then((data) => {
 						console.log(data);
 					})
 					.catch((error) => { console.log(error) });
-				const actions = getActions();
-				actions.getContacts();
+				
 			},
 
 			editContact: (contact) => {
